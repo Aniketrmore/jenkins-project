@@ -1,0 +1,3 @@
+# Ignore Terraform variable files with secrets
+terraform.tfvars
+*.auto.tfvars
