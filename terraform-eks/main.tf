@@ -127,7 +127,7 @@ resource "aws_eks_node_group" "cbz_nodegroup" {
 # Automatically Update Kubeconfig for kubectl Access
 resource "null_resource" "update_kubeconfig_v2" {
   provisioner "local-exec" {
-    command = "aws eks --region ap-southeast-2 update-kubeconfig_v2 --name cbz-cluster"
+    command = "aws eks --region ap-southeast-2 update-kubeconfig --name cbz-cluster"
   }
 
   depends_on = [aws_eks_cluster.cbz_cluster]
