@@ -2,9 +2,7 @@
 
 provider "aws" {
   region = "ap-southeast-2"
-  access_key = var.aws_access_key
-  secret_key = var.aws_secret_key
-}
+ }
 
 # Fetch the Default VPC
 data "aws_vpc" "default" {
