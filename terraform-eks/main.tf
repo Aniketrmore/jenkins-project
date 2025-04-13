@@ -147,23 +147,23 @@ resource "null_resource" "configure_aws_auth" {
   provisioner "local-exec" {
     command = <<EOT
       cat <<EOF | kubectl apply -f -
-      apiVersion: v1
-      kind: ConfigMap
-      metadata:
-        name: aws-auth
-        namespace: kube-system
-      data:
-        mapRoles: |
-          - rolearn: ${aws_iam_role.eks_node_role.arn}
-            username: "system:node:EC2PrivateDNSName"
-            groups:
-              - system:bootstrappers
-              - system:nodes
-          - rolearn: ${aws_iam_role.eks_cluster_role.arn}
-            username: "admin"
-            groups:
-              - system:masters
-      EOF
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+data:
+  mapRoles: |
+    - rolearn: ${aws_iam_role.eks_node_role.arn}
+      username: "system:node:EC2PrivateDNSName"
+      groups:
+        - system:bootstrappers
+        - system:nodes
+    - rolearn: ${aws_iam_role.eks_cluster_role.arn}
+      username: "admin"
+      groups:
+        - system:masters
+EOF
     EOT
   }
 }
