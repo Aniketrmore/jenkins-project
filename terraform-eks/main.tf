@@ -155,12 +155,12 @@ resource "null_resource" "configure_aws_auth" {
       data:
         mapRoles: |
           - rolearn: ${aws_iam_role.eks_node_role.arn}
-            username: system:node:EC2PrivateDNSName
+            username: "system:node:EC2PrivateDNSName"
             groups:
               - system:bootstrappers
               - system:nodes
           - rolearn: ${aws_iam_role.eks_cluster_role.arn}
-            username: admin
+            username: "admin"
             groups:
               - system:masters
       EOF
