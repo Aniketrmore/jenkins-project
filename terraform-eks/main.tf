@@ -168,7 +168,7 @@ EOF
   }
   depends_on = [
     aws_eks_cluster.cbz_cluster,
-    null_resource.update_kubeconfig
+    null_resource.update_kubeconfig_v2
   ]
 }
 
