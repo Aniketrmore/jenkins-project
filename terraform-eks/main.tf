@@ -166,6 +166,7 @@ resource "null_resource" "configure_aws_auth" {
       EOF
     EOT
   }
+}
 
   depends_on = [
     aws_eks_cluster.cbz_cluster,
